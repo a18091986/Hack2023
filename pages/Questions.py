@@ -6,6 +6,7 @@ import pandas as pd
 from dash import dcc, html, callback, Output, Input, State
 import dash_bootstrap_components as dbc
 import tensorflow as tf
+import math
 
 from dash_elements import generate_carousel
 from usefull_func import get_dist
@@ -93,13 +94,15 @@ def get_recs_groups_exist_users(n, items, item_idx, user_idx):
     user_coords = df_users[df_users['уникальный номер'] == user_idx][['latitude', 'longitude']].to_numpy().tolist()[0]
     print(user_coords)
     if active_groups:
+        for group in active_groups:
+            print(group)
         cards = [dbc.Col(dbc.Card(
             [
                 dbc.CardHeader(f"ID: {group[0]}"),
                 dbc.CardBody(
                     [
                         html.H5(f"{group[1]}", className="card-title"),
-                        html.P(f"{(group[2].split(',')[1] if len(group[2].split(',')) > 1 else group[2]) if group[2] else ''}",
+                        html.P(f"{(group[2].split(',')[1] if group[2] and len(group[2].split(',')) > 1 else group[2])}",
                                className="card-text"),
                         html.P(f"{group[4]}", className="card-text"),
                     ]),

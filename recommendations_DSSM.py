@@ -6,6 +6,10 @@ from typing import Dict, Text
 import tensorflow as tf
 import tensorflow_recommenders as tfrs
 
+K = 5
+CHUNK = 1000000
+TEST = 1
+
 
 class MovieLensModel(tfrs.Model):
     # We derive from a custom base class to help reduce boilerplate. Under the hood,
@@ -35,18 +39,18 @@ class MovieLensModel(tfrs.Model):
 
 
 def DSSM_model():
-
     print("Start DSSM")
-    for chunk in pd.read_csv('datasets_prep/result.csv', chunksize=1000000):
-        df_attend_users_groups_dict = chunk
-        break
+    if TEST:
+        for chunk in pd.read_csv('datasets_prep/result.csv', chunksize=CHUNK):
+            df_attend_users_groups_dict = chunk
+            break
 
-    for chunk in pd.read_csv('datasets_prep/result.csv', chunksize=1000000):
-        data = chunk
-        break
-
-    # df_attend_users_groups_dict = pd.read_csv('datasets_prep/result.csv')
-    # data = pd.read_csv('datasets_prep/result.csv')
+        for chunk in pd.read_csv('datasets_prep/result.csv', chunksize=CHUNK):
+            data = chunk
+            break
+    else:
+        df_attend_users_groups_dict = pd.read_csv('datasets_prep/result.csv')
+        data = pd.read_csv('datasets_prep/result.csv')
 
     print("Datasets Loaded")
     user_feat = df_attend_users_groups_dict[['user_id', 'id_level3', 'gender', 'age', 'register_time', 'quantity']]
@@ -118,7 +122,7 @@ def DSSM_model():
     print("Models train start")
     model.fit(ratings.batch(4096), epochs=10)
 
-    index = tfrs.layers.factorized_top_k.BruteForce(model.user_model, k=5)
+    index = tfrs.layers.factorized_top_k.BruteForce(model.user_model, k=K)
     index.index_from_dataset(
         movies.batch(100).map(lambda title: (title, movie_model(title))))
 

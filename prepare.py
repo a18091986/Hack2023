@@ -31,6 +31,9 @@ gdown.download('https://drive.google.com/file/d/10qTIN9-ihmexpnb7s8HLTJy6h7zuEQD
 gdown.download('https://drive.google.com/file/d/1dbFDPJjqdo4O_gp3aqheE19UoH-h4Xg7/view?usp=sharing',
                output='datasets_prep/users_with_coords.csv', fuzzy=True, quiet=True)
 
+gdown.download('https://drive.google.com/file/d/1VHetyqSWZvDD-bq5ZMN0j509Rh7NNPkU/view?usp=sharing',
+               output='datasets_prep/users.csv', fuzzy=True, quiet=True)
+
 
 top_recs = []
 df = pd.read_csv('datasets_prep/result.csv')
