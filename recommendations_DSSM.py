@@ -1,12 +1,9 @@
 import pandas as pd
 import numpy as np
 from datetime import date
-# import matplotlib.pyplot as plt
-# from statsmodels.tsa.seasonal import seasonal_decompose
 from typing import Dict, Text
 
 import tensorflow as tf
-# import tensorflow_datasets as tfds
 import tensorflow_recommenders as tfrs
 
 
@@ -38,8 +35,8 @@ class MovieLensModel(tfrs.Model):
 
 
 def DSSM_model():
-    print("Start DSSM")
 
+    print("Start DSSM")
     for chunk in pd.read_csv('datasets_prep/result.csv', chunksize=1000000):
         df_attend_users_groups_dict = chunk
         break
@@ -52,7 +49,6 @@ def DSSM_model():
     # data = pd.read_csv('datasets_prep/result.csv')
 
     print("Datasets Loaded")
-
     user_feat = df_attend_users_groups_dict[['user_id', 'id_level3', 'gender', 'age', 'register_time', 'quantity']]
     item_features = df_attend_users_groups_dict[['id_level3', 'markup', 'online_offline', 'id_level2']]
 
@@ -65,7 +61,6 @@ def DSSM_model():
     data.drop_duplicates(inplace=True)
 
     print("Duplicates Droppped")
-
     user_features_float = user_features.astype({'user_id': 'str',
                                                 'id_level3': 'str'})
 

@@ -65,7 +65,6 @@ if __name__ == '__main__':
     df = pd.read_csv('datasets_prep/result.csv')
     list_rec = my_popularity_recommendation(df)
     for i in list_rec:
-        # print(df['line_3'][df['id_level3'] == i].head(1).reset_index().values.tolist()[0])
         top_recs.append(df['line_3'][df['id_level3'] == i].head(1).reset_index().values.tolist()[0][1])
     print(top_recs)
     with open('serialize/top_recs.pkl', 'wb') as f:
