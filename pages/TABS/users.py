@@ -8,7 +8,7 @@ import io
 from PIL import Image
 
 
-def generate_user_tab_content(users: pd.DataFrame, result: pd.DataFrame):
+def generate_user_tab_content(users: pd.DataFrame):
     histogram_gender = px.histogram(users, x='gender', histnorm='percent', text_auto=True)
     histogram_gender['layout'].update(title=dict(
         text='Процентное соотношение <br> женщин и мужчин в датасете',

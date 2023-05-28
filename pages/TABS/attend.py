@@ -9,7 +9,7 @@ import io
 from PIL import Image
 
 
-def generate_attend_tab_content(result: pd.DataFrame):
+def generate_attend_tab_content():
     # histogram_online_offline_attend = px.histogram(result[['online_offline', 'gender']],
     #                                                x='online_offline',
     #                                                color='gender',

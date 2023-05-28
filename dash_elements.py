@@ -1,6 +1,7 @@
 import dash_bootstrap_components as dbc
 from dash import dcc, html
 
+
 def generate_dropdown_gender():
     return dcc.Dropdown([answer for n, answer in enumerate(["Мужчина", "Женщина"])],
                         id="dropdown_gender",

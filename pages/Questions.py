@@ -8,7 +8,7 @@ import dash_bootstrap_components as dbc
 import tensorflow as tf
 
 from dash_elements import generate_carousel
-from df_prepare import get_dist
+from usefull_func import get_dist
 from pages.TABS.exist_user_tab import generate_exist_user_tab_content
 from pages.TABS.new_user_tab import generate_new_user_tab_content
 from pages.model import model, index
@@ -76,14 +76,7 @@ def get_recs_exist_users(n, idx):
 def get_recs_groups_exist_users(n, items, item_idx, user_idx):
     item_idx = item_idx if item_idx else 0
     line_3 = items[item_idx].get('header')[0]
-    #
-    # print(user_idx)
-    # print(items)
-    # print(item_idx)
-    # print(line_3)
-    #
-    # return ''
-#
+
     active_groups = df_groups[(df_groups['направление 3'] == line_3)
                               & (df_groups['расписание в плановом периоде']
                                  .notna())][['уникальный номер',
