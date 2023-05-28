@@ -1,0 +1,23 @@
+h4, h5, .center_elements {
+    text-align: center;
+}
+
+h5 {
+
+  font-size: 25px;
+  color: green;
+
+}
+
+p {
+
+  font-size: 18px;
+
+}
+
+#dropdown_questions, #dropdown_wrapper {
+    text-align: center;
+    color: black;
+    margin: 20 20;
+    padding: 20 120;
+}

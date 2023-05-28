@@ -1,3 +1,5 @@
 .idea
 venv
 datasets_prep
+serialize
+__pycache__
