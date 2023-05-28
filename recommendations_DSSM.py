@@ -6,9 +6,9 @@ from typing import Dict, Text
 import tensorflow as tf
 import tensorflow_recommenders as tfrs
 
-K = 5
+K = 10
 CHUNK = 1000000
-TEST = 1
+TEST = 0
 
 
 class MovieLensModel(tfrs.Model):

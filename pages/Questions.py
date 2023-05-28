@@ -27,7 +27,7 @@ with open('serialize/top_recs.pkl', 'rb') as f:
     top_recs = pkl.load(f)
     # print(top_recs)
 
-dash.register_page(__name__, path='/Questions', name='recommend')
+dash.register_page(__name__, path='/Questions', name='Recommend')
 
 layout = html.Div([
     html.Div([dbc.Alert([
@@ -94,15 +94,13 @@ def get_recs_groups_exist_users(n, items, item_idx, user_idx):
     user_coords = df_users[df_users['уникальный номер'] == user_idx][['latitude', 'longitude']].to_numpy().tolist()[0]
     print(user_coords)
     if active_groups:
-        for group in active_groups:
-            print(group)
         cards = [dbc.Col(dbc.Card(
             [
                 dbc.CardHeader(f"ID: {group[0]}"),
                 dbc.CardBody(
                     [
                         html.H5(f"{group[1]}", className="card-title"),
-                        html.P(f"{(group[2].split(',')[1] if group[2] and len(group[2].split(',')) > 1 else group[2])}",
+                        html.P(f"{(group[2].split(',')[1] if type(group[2]) is not float and len(group[2].split(',')) > 1 else group[2] if type(group[2]) is not float else '')}",
                                className="card-text"),
                         html.P(f"{group[4]}", className="card-text"),
                     ]),
@@ -189,7 +187,7 @@ def get_recs_new_users(items, city, street, idx, n):
                 dbc.CardBody(
                     [
                         html.H5(f"{group[1]}", className="card-title"),
-                        html.P(f"{group[2].split(',')[1] if len(group[2].split(',')) > 1 else group[2]}",
+                        html.P(f"{(group[2].split(',')[1] if type(group[2]) is not float and len(group[2].split(',')) > 1 else group[2] if type(group[2]) is not float else '')}",
                                className="card-text"),
                         html.P(f"{group[4]}", className="card-text"),
                     ]),

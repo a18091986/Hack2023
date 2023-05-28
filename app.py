@@ -1,5 +1,5 @@
 import dash
-from dash import html, dcc, Input, Output, State
+from dash import html
 import dash_bootstrap_components as dbc
 
 app = dash.Dash(__name__,

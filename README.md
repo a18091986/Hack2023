@@ -11,5 +11,6 @@
 - - [Презентация](https://github.com/a18091986/Hack2023/blob/main/results/Преза_хакатон_2023.pptx "Презентация")
 - - [Презентация (альтернативная ссылка)](https://docs.google.com/presentation/d/1HDP25JWJnLSGsv_P8ToaCtPgdoBn49Wm/edit?usp=sharing&ouid=114520164658984644114&rtpof=true&sd=true "Презентация")
 - - [Рекомендации для тестового датасета](https://github.com/a18091986/Hack2023/blob/main/results/data_test.csv "data_test")
+- - [Рекомендации для тестового датасета (альтернативная ссылка)](https://drive.google.com/file/d/1J6NE2Ore7gGdx_S58LIcHzPNsd65nkM-/view?usp=share_link "data_test")
 - - [Используемые датасеты](https://drive.google.com/drive/folders/16tnOOkUqM0-zqPUMQvmh2jcdrfakXv1c?usp=sharing "datasets")
 - - [Работающий дашборд](http:46.8.219.63:1919 "dash") - в случае недоступности можно написать в ТГ @behappymaniam - оперативно запущу

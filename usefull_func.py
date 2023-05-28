@@ -1,4 +1,5 @@
 from geopandas.tools import geocode
+from geopy.distance import geodesic as GD
 import math
 
 
